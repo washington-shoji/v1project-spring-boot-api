@@ -8,6 +8,10 @@ group = 'com.v1project'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
+ext {
+	set('testcontainersVersion', "1.18.0")
+}
+
 repositories {
 	mavenCentral()
 }
@@ -18,8 +22,22 @@ dependencies {
 	implementation 'org.apache.groovy:groovy'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:postgresql'
+	testImplementation 'io.rest-assured:rest-assured'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+	}
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+	testLogging {
+		events = ["PASSED", "FAILED", "SKIPPED"]
+		showStandardStreams = true
+		exceptionFormat = "full"
+	}
 }
