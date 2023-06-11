@@ -106,5 +106,7 @@ public class ProductPostgresSQLTest extends AbstractIntegrationTest {
 
         // Then
         assertThat(productRepository.findAll()).hasSize(3);
+
+        // Just for testing pipeline v1
     }
 }
