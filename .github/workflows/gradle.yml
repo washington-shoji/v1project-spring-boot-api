@@ -60,8 +60,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
-          arguments: build
-          un: ./gradlew build -x test
+          arguments: build -x test
 
   integration_test:
     needs: [build_gradle]
@@ -107,5 +106,4 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
-          arguments: test
-          run: ./gradlew test --tests "*"
+          arguments: test --tests "*"
