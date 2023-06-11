@@ -17,9 +17,8 @@ permissions:
   contents: read
 
 jobs:
-  job1:
-    build:
-    name: Build Gradle
+  build:
+  - name: Build Gradle
     runs-on: ubuntu-latest
 
     services:
@@ -62,11 +61,3 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-        run: ./gradlew build -x test
-  job2:
-    needs: job1
-    name: Integration Test
-    steps:
-      #Run Tests
-      - name: Test coverage with Gradle
-        run: ./gradlew test --tests "*"
