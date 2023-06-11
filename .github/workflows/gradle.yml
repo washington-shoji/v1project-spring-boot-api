@@ -17,8 +17,6 @@ permissions:
   contents: read
 
 jobs:
-  job1:
-    - name: Build Gradle
   build:
     runs-on: ubuntu-latest
 
