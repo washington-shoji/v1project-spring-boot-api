@@ -20,7 +20,6 @@ jobs:
   job1:
     build:
     name: Build Gradle
-
     runs-on: ubuntu-latest
 
     services:
