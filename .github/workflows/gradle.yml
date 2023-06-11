@@ -30,7 +30,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: password
           POSTGRES_USER: username
-          POSTGRES_DB: postgresql
+          POSTGRES_DB: v1project
         ports:
           - 5432:5432
         # Set health checks to wait until postgres has started
