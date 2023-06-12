@@ -42,7 +42,7 @@ jobs:
       - name: Setup config
         run: |
           mkdir config
-          echo 'spring.datasource.url=jdbc:postgresql://localhost:5432/${{secrets.POSTGRES_DB}}'
+          echo 'spring.datasource.url=jdbc:postgresql://localhost:5432/${{secrets.POSTGRES_DB}}' > config/application.yml
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
       - uses: actions/checkout@v3
       #Set up JDK 17
@@ -87,7 +87,7 @@ jobs:
       - name: Setup config
         run: |
           mkdir config
-          echo 'spring.datasource.url=jdbc:postgresql://localhost:5432/${{secrets.POSTGRES_DB}}'
+          echo 'spring.datasource.url=jdbc:postgresql://localhost:5432/${{secrets.POSTGRES_DB}}' > config/application.yml
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
       - uses: actions/checkout@v3
       #Set up JDK 17
